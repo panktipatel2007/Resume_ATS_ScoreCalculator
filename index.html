@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>AI Resume Insights</title>
+</head>
+<body>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">AI Resume Analyzer</h1>
+            <p class="text-secondary">Optimize your career path with precision analytics.</p>
+        </header>
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="glass-card h-100">
+                        <h4>📄 Resume</h4>
+                            <textarea
+                                name="resume_text"
+                                class="form-control bg-dark text-white border-secondary"
+                                rows="5"
+                                placeholder="Paste your resume here">
+                            </textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="glass-card h-100">
+                        <h4>💼 Job Description</h4>
+                        <textarea name="jd" class="form-control bg-dark text-white border-secondary mt-3" rows="5" placeholder="Paste requirements here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button type="submit" class="btn btn-lg btn-gradient px-5 py-3 rounded-pill">Analyze Now</button>
+            </div>
+        </form>
+
+        {% if result %}
+<div class="mt-5 glass-card animate-fadeIn">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <div class="score-circle">{{ result.score }}%</div>
+            <p class="mt-3 text-secondary">Match Score</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+    </div>
+</body>
+</html>
