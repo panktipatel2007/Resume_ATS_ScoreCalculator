@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, send_file
 import subprocess
-from google.generativeai
 
 app = Flask(__name__)
 
